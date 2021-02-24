@@ -120,8 +120,4 @@ Cucumber supports BDD(Behavioral Driven Development) framework. To integrate cyp
     "nonGlobalStepDefinitions": true
     }
 
-    With Cucumber test execution can be controlled by using tags. Test cases canbe defined with tags as sanityTest, RegressionTest etc
-
-Then Shopping Bag value should be '1' 
-
-    
+    With Cucumber test execution can be controlled by using tags. Test cases canbe defined with tags as sanityTest, RegressionTest etc    
