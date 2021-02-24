@@ -1,0 +1,7 @@
+{
+    "pageTitle" :   "ProtoCommerce",
+    "phoneModel" :  "iphone X",
+    "addMulProducts":   ["iphone X","Blackberry"],
+    "iPhonePrice":  "100000",
+    "qtySold":  "2"
+}

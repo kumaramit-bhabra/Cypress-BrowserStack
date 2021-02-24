@@ -1,0 +1,10 @@
+{
+  "name": "Amit Kumar",
+  "email":  "amit14nov@yahoo.com",
+  "password": "test123",
+  "gender": "Male",
+  "dateOfBirth":"2006-06-17",
+  "successMessage": "Success! The Form has been submitted successfully!.",
+
+  "navItems": ".nav-link"
+}

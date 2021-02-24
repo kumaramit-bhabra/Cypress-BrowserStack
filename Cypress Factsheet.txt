@@ -1,0 +1,127 @@
+Tests can be run from Cypress using Testrunner or from the command line in headless or head mode
+By using testrunner tests always run in Head mode
+By using command line, by default tests are run in the headless mode on Electron browser
+
+From Testrunner
+.\node_modules\.bin\cypress open - To invoke the tests from Testrunner. This will invoke the testrunner and you can select a particular spec file and browser and run the tests
+
+From Command line
+.\node_modules\.bin\cypress run -  This will run all the spec files present in integration/examples folder in headless mode in Electron browser
+
+cypress run --headed - This will run all the spec files present in integration/examples folder in head mode in Electron browser
+
+You can also specify which browser to run from the command line by using the browser keyword
+cypress run --browser='chrome/firefox/Electron/edge/chromium'
+
+cypress run --browser='chrome' - This will run the test cases in chrome and in head mode
+cypress run --browser='firefox' - This will run the test cases in forefox and in head mode
+cypress run --browser='edge' - This will run the test cases in edge and in head mode
+cypress run --browser='electron' - This will run the test cases in electron and in headless mode. 
+
+Please note that cypress look for the browser in the C:/Program Files (x86)/Google/Chrome/Application/chrome.exe.. if it's not existing then it will throw an error message for browser.
+You can use \node_modules\.bin\cypress info to find out the which browser it's currently supporting on the local machine  
+
+Folder Structure
+fixtures - This is used to hold the test data
+
+Cypress uses CSS selector to locate the elements
+By Id => #idname
+By Classname => .Classname
+By using any attribute
+tagname[attribute = value] =>input[type='search']
+By tagnames
+
+Different methods associated with Cypress
+Cypress doesn't support cross domain
+cy.visit()  - Open the url
+cy.get()    - Find the element on the Web Page 
+cy.type()   - Type into an element
+cy.click()  - Click an element
+cy.find()   - Find the descedant element of the specified selector. Used for finding out the child of an parent element. First you will get the parent element using get() and 
+then use find() method to find out the associated child elements
+cy.eq()     - Select one of the element from Array
+cy.each()   - Iterate through every element with in the array
+cy.select() - Select one of the option from the drop down. Pass either the value as an arguement
+Cypress auto accept Alerts and Pop Ups. 
+Cypress also have capability to listen to browser events. Cy.on() method is used to manage the events
+invoke() - To work on previous yielded object. You can use the method removeAttr to remove any property associated with the Web element.
+cy.go() - Used to go back / forward to browser history using 'back' and 'forward'
+cy.url() - provide the current url
+cy.next() - can be used to find the next element from the already selected DOM element
+Cypress doesn't have any function to support mouse hover instead it uses JQuery show() to interact with mouse over elements. This method is used to show hidden & selected elements
+You can also click on hidden element using click({force:true}). Get the Webelement by using get() and then apply the click({force:true}).
+
+Cypress now support frames. To work on the frame, have to install cypress-iframe as an dependency
+    First thing is load the frame using frameLoaded(). Provide name of frame on which you want to work  
+    Once you have the frame then start work on the iframe using cy.iframe() method and use 
+
+Hooks are similar to annotations. Below Hooks can be used
+    before() - Run once before all the tests. Basically all set up methods should go in before() method
+    after()  - Run once after all the tests have run. All tear down methods should go in after() method
+    beforeEach() - Run before each test. Basically before every it() test case
+    afterEach() - Runs after each test
+
+We will be using Page Object Design Pattern to refine the framework
+    Fixtures folder will have the json file that will be used for defining the test data that is going to be used for testing. cy.fixture() method will be used to 
+    initialise the data for each test. This file will be loaded before running the test by using the before() fixture
+
+Cypress allows you to create custom commands. You can create re-usable commands by defining them in the command.js file in support folder
+
+Cypress allows youto perform debug of your test case by using pause() / debug()
+
+Cypress allows you to change the default timeout for the command. Default timeout is 4000 (4 seconds). This can be amended by altering the value of 'defaultCommandTimeOut' in
+cypress.json file. Explicitily you can override timeout for specific test by using the cypress.config('defaultCommandTimeOut', 8000). You can always override the behaviour for other 
+parameters from cypress.json. You can also define custom environment variables in cypress.json file by using env keyword
+
+Running test from command prompt takes priority and you can alwaus override the environment values from the command line.
+
+Cypress Dashboard is a service that gives you access to recorded tests - typically when you are running your tests from CI provider. It gives you an insight into what happened when 
+the test ran
+
+
+You can always see your dashbaord by visting the below link
+https://dashboard.cypress.io/projects/'XXXX' - where XXXX is your project id
+
+.\node_modules\.bin\cypress run --record --key eb3fe0d0-dd50-491c-a42c-08e99290451e --browser = 'chrome' --reporter = 'mochawesome'
+
+Jenkins Admin Password
+e423966971444e64b1c3b8e646eccd51
+
+Admin User: KumarAmitB/Loadrunner_1
+
+Jenkins is used to build and test your product continuously, so developers can continuously integrate changes into the build. Jenkins is the most popular open source CI/CD tool 
+on the market today and is used in support of DevOps, alongside other cloud native tools
+
+Jenkins is a free and open source automation server. It helps automate the parts of software development related to building, testing, and deploying, facilitating 
+continuous integration and continuous delivery. It is a server-based system that runs in servlet containers such as Apache Tomcat.
+
+Cypress with Cucumber
+Cucumber is a testing framework for behavior driven development. It works by allowing you to define your tests in Gherkin form, and makes these gherkins executable 
+by tying them to code.
+
+Cucumber supports BDD(Behavioral Driven Development) framework. To integrate cypress with Cucumber, below needs to be achieved
+    
+    1. Install cypress-cucumber-preprocessor as an dependency
+    
+    2. In cypress/plugins/index.js, find the wiring with Cypress as a file preprocessor.
+    
+    const cucumber = require('cypress-cucumber-preprocessor').default
+    module.exports = (on, config) => {
+        on('file:preprocessor', cucumber());
+    };
+
+    3. Add support for feature files to your Cypress configuration in cypress.json
+    
+    "testFiles": "**/*.feature"
+
+    4. Add the configuration for the plugin in package.json
+    
+    "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+    }
+
+    With Cucumber test execution can be controlled by using tags. Test cases canbe defined with tags as sanityTest, RegressionTest etc
+
+Then Shopping Bag value should be '1' 
+
+    

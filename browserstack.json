@@ -1,0 +1,48 @@
+{
+    "auth": {
+      "username": "kumar615",
+      "access_key": "SV5QYqNRc2K8odiz6qxy"
+    },
+    "browsers": [{
+        "browser": "chrome",
+        "os": "Windows 10",
+        "versions": ["latest", "latest - 1"]
+      },
+      {
+        "browser": "firefox",
+        "os": "OS X Mojave",
+        "versions": ["latest", "latest - 1"]
+      },
+      {
+        "browser": "edge",
+        "os": "OS X Catalina",
+        "versions": ["latest"]
+      }
+    ],
+    "run_settings": {
+      "cypress_config_file": "./cypress.json",
+      "cypress_version": "6",
+      "project_name": "Cypress Automation",
+      "build_name": "Build no: 1",
+      "parallels": 5,
+      "specs": ["cypress/integration/examples/features/*"],
+      "npm_dependencies": {
+        "cypress-cucumber-preprocessor": "^4.0.1",
+        "mocha": "^8.3.0",
+        "mochawesome": "^6.2.2",
+        "cucumber": "^7.0.0-rc.0"
+      },
+
+      "package_config_options": {
+        "cypress-cucumber-preprocessor": {
+            "nonGlobalStepDefinitions": true
+        }
+    }
+    },
+    "connection_settings": {
+      "local": false,
+      "local_identifier": null
+    },
+    "disable_usage_reporting": false
+  }
+  

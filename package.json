@@ -1,0 +1,27 @@
+{
+  "name": "cyautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "runTestRunner": ".\\node_modules\\.bin\\cypress open",
+    "runTest": ".\\node_modules\\.bin\\cypress run",
+    "runTestInChrome": "npm run runTest -- --browser=chrome",
+    "runTestDashBoardReporting": "npm run runTest -- --browser=chrome --record --key eb3fe0d0-dd50-491c-a42c-08e99290451e"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "author": "KAB",
+  "license": "ISC",
+  "devDependencies": {
+    "browserstack-cypress-cli": "^1.7.1",
+    "chai": "^4.2.0",
+    "cucumber": "^7.0.0-rc.0",
+    "cypress": "^6.4.0",
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-iframe": "^1.0.1",
+    "mocha": "^8.3.0",
+    "mochawesome": "^6.2.2"
+  }
+}

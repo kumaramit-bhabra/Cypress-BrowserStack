@@ -1,0 +1,9 @@
+{
+  "defaultCommandTimeout": 7000,
+  "env": {
+    "url": "https://rahulshettyacademy.com/angularpractice"
+  },
+  "projectId": "pfhfo7",
+  "testFiles": "**/*.feature",
+  "reporter": "mochawesome"
+}
