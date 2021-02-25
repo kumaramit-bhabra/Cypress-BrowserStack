@@ -21,12 +21,11 @@ const landingPage = new LandingPage();
         cy.fixture('landingData').then(function(data)
         {
             this.userReg = data;
-            cy.log("hello World");
         })
     })
 
     When("User Enters the name",function(){
-        cy.log("hello World");
+        
     })
     
     Then("Title of the page should be correct",()=>{

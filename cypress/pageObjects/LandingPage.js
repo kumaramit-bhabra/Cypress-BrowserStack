@@ -23,7 +23,6 @@ class LandingPage{
         var pageTitle;     
         cy.get(this.landingPageTitleElm).then(function($title){
         pageTitle = $title.text();
-        cy.log(pageTitle);
         expect(pageTitle).equal("ProtoCommerce");
         })
         
@@ -34,7 +33,6 @@ class LandingPage{
         cy.get(this.nameTextBoxElm).type(userReg.name);
         cy.get(this.bindingTextBoxElm).then(function(bindingValue){
             const bindingTextBoxVal = bindingValue.val();
-            cy.log(bindingTextBoxVal);
             expect(bindingTextBoxVal).to.be.equal(userReg.name)
         })
         cy.get(this.bindingTextBoxElm).should("have.value",userReg.name);
@@ -68,7 +66,6 @@ class LandingPage{
     isUserRegistered(userReg){
         cy.get(this.successConfirmMessElm).then(function(message){
             const msgTxt = message.text();
-            cy.log(msgTxt);
             expect(msgTxt).contains(userReg.successMessage);
         })
         cy.get(this.closeSuccessMessageElm).click();
