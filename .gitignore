@@ -1,6 +1,8 @@
-node_modules
-mochawesome-report
-results
+node_modules/
+mochawesome-report/
+results/
 log
 videos
 debug.log
+package-lock.json
+support
